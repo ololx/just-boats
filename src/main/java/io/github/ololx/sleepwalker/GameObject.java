@@ -7,4 +7,8 @@ package io.github.ololx.sleepwalker;
  * @author Alexander A. Kropotin
  */
 public interface GameObject {
+
+    public void update();
+
+    public void render();
 }

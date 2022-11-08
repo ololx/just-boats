@@ -17,7 +17,7 @@ public class GameLoop {
 
     private Thread gameThread;
 
-    private int xPosition;
+    private Player player = new Player(1, 1);
 
     public void run() {
         active = true;
@@ -44,11 +44,11 @@ public class GameLoop {
     }
 
     public void update() {
-        xPosition++;
+        player.move();
     }
 
     public void render() {
-        log.info("Current position: " + xPosition);
+        log.info("Current position: " + player.position.toString());
     }
 
     public void processGameLoop() {
