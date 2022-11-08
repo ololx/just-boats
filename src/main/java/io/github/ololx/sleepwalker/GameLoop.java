@@ -17,7 +17,7 @@ public class GameLoop {
 
     private Thread gameThread;
 
-    private Player player = new Player(1, 1);
+    GameController controller;
 
     public void run() {
         active = true;
@@ -36,7 +36,7 @@ public class GameLoop {
 
     public void idle() {
         try {
-            var lag = new Random().nextInt(200) + 50;
+            var lag = new Random().nextInt(50) + 50;
             Thread.sleep(lag);
         } catch (InterruptedException e) {
             log.severe(e.getMessage());
@@ -44,11 +44,11 @@ public class GameLoop {
     }
 
     public void update() {
-        player.move();
+        controller.update();
     }
 
     public void render() {
-        log.info("Current position: " + player.position.toString());
+        controller.render();
     }
 
     public void processGameLoop() {
