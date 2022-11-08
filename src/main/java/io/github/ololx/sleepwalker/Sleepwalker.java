@@ -9,6 +9,7 @@ package io.github.ololx.sleepwalker;
 public class Sleepwalker {
 
     public static void main(String[] args) {
-
+        Game game = new Game(new GameLoop());
+        game.start();
     }
 }
