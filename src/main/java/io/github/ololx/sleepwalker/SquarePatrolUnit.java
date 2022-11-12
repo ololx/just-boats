@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  *
  * @author Alexander A. Kropotin
  */
-public class RoundPatrolUnit implements GameObject {
+public class SquarePatrolUnit implements GameObject {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
@@ -21,15 +21,15 @@ public class RoundPatrolUnit implements GameObject {
 
     private final VectorXYD velocity = new VectorXYD(1, 1);
 
-    private final double rotation = Math.toRadians(360 / 120);
+    private final double rotation = Math.toRadians(-90);
 
-    private int frameLimit = 120;
+    int frameLimit = 30;
 
-    private int currentFrames = 0;
+    int currentFrames = 0;
 
-    private int state = 0;
+    int state = 0;
 
-    public RoundPatrolUnit(double x, double y) {
+    public SquarePatrolUnit(double x, double y) {
         this.position = new VectorXYD(x, y);
         this.direction = new VectorXYD(0, 1).normalize();
     }
@@ -39,9 +39,10 @@ public class RoundPatrolUnit implements GameObject {
         if (++currentFrames >= frameLimit) {
             currentFrames = 0;
             state++;
+
+            this.direction = this.direction.rotate(this.rotation);
         }
 
-        this.direction = this.direction.rotate(this.rotation);
         this.position = this.position.add(this.velocity.multiply(direction));
 
         currentFrames++;
@@ -59,7 +60,7 @@ public class RoundPatrolUnit implements GameObject {
                     continue;
                 }
 
-                scene.pixels[i + j * Scene.SCENE_WIDTH] = Color.MAGENTA.getRGB();
+                scene.pixels[i + j * Scene.SCENE_WIDTH] = Color.GREEN.getRGB();
             }
         }
     }

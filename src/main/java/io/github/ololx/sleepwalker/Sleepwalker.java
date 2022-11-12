@@ -19,12 +19,13 @@ public class Sleepwalker {
         gameLoop.controller = new GameController(
                 scene,
                 new ArrayList<GameObject>() {{
-                    add(new RoundPatrolUnit(50, 50));
+                    add(new SquarePatrolUnit(50, 50));
                     add(new RightLeftPatrolUnit(250, 50));
-                    add(new RoundPatrolUnit(500, 50));
+                    add(new SquarePatrolUnit(500, 50));
                     add(new UpDownPatrolUnit(100, 150));
-                    add(new RoundPatrolUnit(300, 250));
+                    add(new SquarePatrolUnit(300, 250));
                     add(new RightLeftPatrolUnit(150, 300));
+                    add(new RoundPatrolUnit(400, 120));
                     add(new UpDownPatrolUnit(450, 450));
                 }}
         );
