@@ -11,19 +11,42 @@ import java.util.logging.Logger;
  *
  * @author Alexander A. Kropotin
  */
-public class Player implements GameObject {
+public class StupidSquare implements GameObject {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
     private VectorXYD position;
 
-    public Player(int x, int y) {
+    private VectorXYD direction;
+
+    private final VectorXYD velocity = new VectorXYD(1, 1);
+
+    private final double rotation = Math.toRadians(-90);
+
+    int frameLimit = 30;
+
+    int currentFrames = 0;
+
+    int state = 0;
+
+    public StupidSquare(double x, double y) {
         this.position = new VectorXYD(x, y);
+        this.direction = new VectorXYD(0, 1).normalize();
     }
 
     @Override
     public void update() {
-        this.position = this.position.add(new VectorXYD(0, 0.1));
+        if (++currentFrames >= frameLimit) {
+            currentFrames = 0;
+            state++;
+
+            this.direction = this.direction.rotate(this.rotation);
+            log.info("Current direction: " + this.direction.toString());
+        }
+
+        this.position = this.position.add(this.velocity.multiply(direction));
+
+        currentFrames++;
     }
 
     @Override
@@ -38,10 +61,8 @@ public class Player implements GameObject {
                     continue;
                 }
 
-                scene.pixels[i + j * scene.SCENE_WIDTH] = Color.GREEN.getRGB();
+                scene.pixels[i + j * Scene.SCENE_WIDTH] = Color.GREEN.getRGB();
             }
         }
-
-        log.info("Current position: " + this.position.toString());
     }
 }
