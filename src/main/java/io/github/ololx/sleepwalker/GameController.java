@@ -21,6 +21,7 @@ public class GameController {
     }
 
     public void render() {
+        scene.clear();
         player.render(scene);
         scene.render();
     }

@@ -10,6 +10,7 @@ import java.awt.image.DataBufferInt;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.IntStream;
 
 public class Scene extends JFrame {
 
@@ -60,6 +61,12 @@ public class Scene extends JFrame {
      */
     public void init() {
         requestFocus();
+    }
+
+    public void clear() {
+        IntStream.range(0, this.pixels.length)
+                .parallel()
+                .forEach(index -> this.pixels[index] = 0);
     }
 
     public void render() {
