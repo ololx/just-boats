@@ -16,11 +16,7 @@ public class GameController {
 
     Scene scene;
 
-    GameController(Scene scene) {
-        this.scene = Objects.requireNonNull(scene);
-    }
-
-    public GameController(Scene scene, List<StupidSquare> units) {
+    public GameController(Scene scene, List<GameObject> units) {
         this.scene = Objects.requireNonNull(scene);
         this.units.addAll(Objects.requireNonNull(units));
     }

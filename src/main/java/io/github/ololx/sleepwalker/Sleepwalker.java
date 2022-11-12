@@ -1,11 +1,6 @@
 package io.github.ololx.sleepwalker;
 
-import javax.swing.*;
-import java.util.List;
-import java.util.Random;
-import java.util.function.DoubleFunction;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.ArrayList;
 
 /**
  * project sleepwalker
@@ -23,14 +18,15 @@ public class Sleepwalker {
 
         gameLoop.controller = new GameController(
                 scene,
-                List.of(
-                        new StupidSquare(50, 50),
-                        new StupidSquare(250, 50),
-                        new StupidSquare(500, 50),
-                        new StupidSquare(100, 150),
-                        new StupidSquare(300, 250),
-                        new StupidSquare(450, 450)
-                )
+                new ArrayList<GameObject>() {{
+                    add(new RoundPatrolUnit(50, 50));
+                    add(new RightLeftPatrolUnit(250, 50));
+                    add(new RoundPatrolUnit(500, 50));
+                    add(new UpDownPatrolUnit(100, 150));
+                    add(new RoundPatrolUnit(300, 250));
+                    add(new RightLeftPatrolUnit(150, 300));
+                    add(new UpDownPatrolUnit(450, 450));
+                }}
         );
         Game game = new Game(gameLoop);
         game.start();

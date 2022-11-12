@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  *
  * @author Alexander A. Kropotin
  */
-public class StupidSquare implements GameObject {
+public class RoundPatrolUnit implements GameObject {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
@@ -29,7 +29,7 @@ public class StupidSquare implements GameObject {
 
     int state = 0;
 
-    public StupidSquare(double x, double y) {
+    public RoundPatrolUnit(double x, double y) {
         this.position = new VectorXYD(x, y);
         this.direction = new VectorXYD(0, 1).normalize();
     }
@@ -41,7 +41,6 @@ public class StupidSquare implements GameObject {
             state++;
 
             this.direction = this.direction.rotate(this.rotation);
-            log.info("Current direction: " + this.direction.toString());
         }
 
         this.position = this.position.add(this.velocity.multiply(direction));
