@@ -26,6 +26,8 @@ public class SpriteImage {
 
     private int height;
 
+    private final int emptyPixel = 0x0;
+
     public SpriteImage(String imageUri) {
         this(imageUri, 1, 1);
     }
@@ -78,6 +80,10 @@ public class SpriteImage {
 
     public int getHeight() {
         return this.height;
+    }
+
+    public int getEmptyPixel() {
+        return this.emptyPixel;
     }
 
     public int getPixel(int x, int y) {

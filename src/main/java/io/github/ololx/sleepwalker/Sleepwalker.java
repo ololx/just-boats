@@ -25,8 +25,8 @@ public class Sleepwalker {
                     add(new UpDownPatrolUnit(100, 150));
                     add(new SquarePatrolUnit(300, 250));
                     add(new RightLeftPatrolUnit(150, 300));
-                    add(new RoundPatrolUnit(400, 120));
-                    add(new UpDownPatrolUnit(450, 450));
+                    add(new RightLeftPatrolUnit(400, 120));
+                    add(new UpDownPatrolUnit(300, 300));
                 }}
         );
         Game game = new Game(gameLoop);
