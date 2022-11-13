@@ -84,4 +84,12 @@ public class Scene extends JFrame {
         g.drawImage(image, 0, 0, width, height,null);
         bs.show();
     }
+
+    public void setPixel(int x, int y, int color) {
+        if (x + y * SCENE_WIDTH >= this.pixels.length) {
+            return;
+        }
+
+        this.pixels[x + y * SCENE_WIDTH] = color;
+    }
 }
