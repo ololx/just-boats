@@ -1,4 +1,4 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats.gfx;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

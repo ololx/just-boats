@@ -1,4 +1,4 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats;
 
 import java.util.Random;
 import java.util.logging.Logger;

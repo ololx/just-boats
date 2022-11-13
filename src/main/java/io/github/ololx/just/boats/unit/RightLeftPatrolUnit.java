@@ -1,10 +1,11 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats.unit;
 
+import io.github.ololx.just.boats.GameObject;
 import io.github.ololx.mooncake.math.VectorXYD;
+import io.github.ololx.just.boats.gfx.Scene;
+import io.github.ololx.just.boats.gfx.SpriteAnimation;
+import io.github.ololx.just.boats.gfx.SpriteImage;
 
-import java.awt.*;
-import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author Alexander A. Kropotin
  */
-public class UpDownPatrolUnit implements GameObject {
+public class RightLeftPatrolUnit implements GameObject {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
@@ -23,11 +24,11 @@ public class UpDownPatrolUnit implements GameObject {
 
     private VectorXYD direction;
 
-    private final VectorXYD velocity = new VectorXYD(1, 2);
+    private final VectorXYD velocity = new VectorXYD(4, 4);
 
     private final double rotation = Math.toRadians(-180);
 
-    int frameLimit = 150;
+    int frameLimit = 300;
 
     int currentFrames = 0;
 
@@ -36,27 +37,27 @@ public class UpDownPatrolUnit implements GameObject {
     List<SpriteAnimation> spriteImages = List.of(
             new SpriteAnimation(
                     Map.of(
-                            new SpriteImage("Boat1_water_frame5.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame6.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame7.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame8.png", 0.25, 0.25), 2
+                            new SpriteImage("Boat4_water_frame1.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame2.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame3.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame4.png", 0.25, 0.25), 1
                     )
             ),
             new SpriteAnimation(
                     Map.of(
-                            new SpriteImage("Boat1_water_frame1.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame2.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame3.png", 0.25, 0.25), 2,
-                            new SpriteImage("Boat1_water_frame4.png", 0.25, 0.25), 2
+                            new SpriteImage("Boat4_water_frame5.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame6.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame7.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat4_water_frame8.png", 0.25, 0.25), 1
                     )
             )
     );
 
     SpriteAnimation spriteImage = spriteImages.get(0);
 
-    public UpDownPatrolUnit(double x, double y) {
+    public RightLeftPatrolUnit(double x, double y) {
         this.position = new VectorXYD(x, y);
-        this.direction = new VectorXYD(0, -1).normalize();
+        this.direction = new VectorXYD(1, 0).normalize();
     }
 
     @Override

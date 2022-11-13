@@ -1,4 +1,9 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats;
+
+import io.github.ololx.just.boats.gfx.Scene;
+import io.github.ololx.just.boats.unit.RightLeftPatrolUnit;
+import io.github.ololx.just.boats.unit.SquarePatrolUnit;
+import io.github.ololx.just.boats.unit.UpDownPatrolUnit;
 
 import java.util.ArrayList;
 
@@ -8,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Alexander A. Kropotin
  */
-public class Sleepwalker {
+public class JustBoats {
 
     public static void main(String[] args) {
         Scene scene = new Scene();

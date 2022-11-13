@@ -1,4 +1,6 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats;
+
+import io.github.ololx.just.boats.gfx.Scene;
 
 import java.util.ArrayList;
 import java.util.List;

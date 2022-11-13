@@ -1,8 +1,11 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats.unit;
 
+import io.github.ololx.just.boats.GameObject;
+import io.github.ololx.just.boats.gfx.Scene;
+import io.github.ololx.just.boats.gfx.SpriteAnimation;
 import io.github.ololx.mooncake.math.VectorXYD;
+import io.github.ololx.just.boats.gfx.SpriteImage;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;

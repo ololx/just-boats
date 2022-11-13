@@ -1,4 +1,4 @@
-package io.github.ololx.sleepwalker;
+package io.github.ololx.just.boats.gfx;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +12,12 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.stream.IntStream;
 
+/**
+ * project sleepwalker
+ * created 13.11.2022 15:43
+ *
+ * @author Alexander A. Kropotin
+ */
 public class Scene extends JFrame {
 
     /**
