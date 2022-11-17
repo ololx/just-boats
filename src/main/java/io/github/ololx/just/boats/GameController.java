@@ -25,6 +25,12 @@ public class GameController {
 
     public void update() {
         units.forEach(GameObject::update);
+        units.forEach(unit -> {
+            units.stream()
+                    .filter(other -> !other.equals(unit))
+                    .filter(unit::checkCollision)
+                    .forEach(unit::resolveCollision);
+        });
     }
 
     public void render() {

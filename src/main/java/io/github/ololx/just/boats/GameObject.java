@@ -8,7 +8,7 @@ import io.github.ololx.just.boats.gfx.Scene;
  *
  * @author Alexander A. Kropotin
  */
-public interface GameObject {
+public interface GameObject extends CollisionObject {
 
     public void update();
 

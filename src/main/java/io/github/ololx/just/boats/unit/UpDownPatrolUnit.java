@@ -1,11 +1,13 @@
 package io.github.ololx.just.boats.unit;
 
+import io.github.ololx.just.boats.CollisionObject;
 import io.github.ololx.just.boats.GameObject;
 import io.github.ololx.mooncake.math.VectorXYD;
 import io.github.ololx.just.boats.gfx.Scene;
 import io.github.ololx.just.boats.gfx.SpriteAnimation;
 import io.github.ololx.just.boats.gfx.SpriteImage;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -16,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Alexander A. Kropotin
  */
-public class UpDownPatrolUnit implements GameObject {
+public class UpDownPatrolUnit implements GameObject, CollisionObject {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
@@ -49,6 +51,13 @@ public class UpDownPatrolUnit implements GameObject {
                             new SpriteImage("Boat1_water_frame2.png", 0.25, 0.25), 2,
                             new SpriteImage("Boat1_water_frame3.png", 0.25, 0.25), 2,
                             new SpriteImage("Boat1_water_frame4.png", 0.25, 0.25), 2
+                    )
+            ),
+            new SpriteAnimation(
+                    Map.of(
+                            new SpriteImage("Boat1_water_frame_boom_1.png", 0.25, 0.25), 1,
+                            new SpriteImage("Boat1_water_frame_boom_2.png", 0.25, 0.25), 2,
+                            new SpriteImage("Boat1_water_frame_boom_3.png", 0.25, 0.25), 2
                     )
             )
     );
@@ -92,5 +101,26 @@ public class UpDownPatrolUnit implements GameObject {
                 );
             }
         }
+    }
+
+    @Override
+    public Rectangle getAABB() {
+        double cx = this.position.getX();
+        double cy = this.position.getY();
+        int x = (int) (cx - 10);
+        int y = (int) (cy + 10);
+        int width = 20, height = 20;
+
+        return new Rectangle(x, y, width, height);
+    }
+
+    @Override
+    public boolean checkCollision(CollisionObject collisionObject) {
+        return this.getAABB().intersects(collisionObject.getAABB());
+    }
+
+    @Override
+    public void resolveCollision(CollisionObject collisionObject) {
+        spriteImage = spriteImages.get(2);
     }
 }
